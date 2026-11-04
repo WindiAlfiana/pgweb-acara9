@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input Fasilitas Pendidikan</title>
+</head>
+
+<body>
+    <h2>Form Input Fasilitas Pendidikan</h2>
+    <form action="input.php" onsubmit="return validateForm()" method="post">
+        <label for="kecamatan">Kecamatan:</label><br>
+        <input type="text" id="kec" name="kecamatan" value=""><br>
+
+        <label for="nama_objek">Nama Objek:</label><br>
+        <input type="text" id="nama_objek" name="nama_objek" value=""><br>
+
+        <label for="jenjang_pendidikan">Jenjang Pendidikan:</label><br>
+        <input type="text" id="jenjang" name="jenjang_pendidikan" value=""><br>
+
+        <label for="jalur_pendidikan">Jalur Pendidikan:</label><br>
+        <input type="text" id="jalur" name="jalur_pendidikan" value=""><br>
+
+        <label for="longitude">Longitude:</label><br>
+        <input type="text" id="long" name="longitude" value=""><br>
+
+        <label for="latitude">Latitude:</label><br>
+        <input type="text" id="lat" name="latitude" value=""><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <p id="informasi" style="color: red;"></p>
+
+    <script>
+        function validateForm() {
+            let longitude = document.getElementById("long").value;
+            let latitude = document.getElementById("lat").value;
+            let text = "";
+
+            // Contoh validasi sederhana untuk memastikan koordinat berupa angka
+            if (isNaN(longitude) || isNaN(latitude)) {
+                text = "Longitude dan Latitude harus berupa angka!";
+                event.preventDefault();
+                document.getElementById("informasi").innerHTML = text;
+                return false;
+            }
+            
+            document.getElementById("informasi").innerHTML = "";
+            return true;
+        }
+    </script>
+</body>
+
+</html>
